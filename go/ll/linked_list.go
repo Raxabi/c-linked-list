@@ -5,7 +5,7 @@ type LinkedList[T any] struct {
 }
 
 func LL_New[T any](data T) LinkedList[T] {
-	n := N_New(data)
+	n := N_New(0, data)
 
 	return LinkedList[T]{
 		base: &n,
@@ -24,11 +24,11 @@ func (ll *LinkedList[T]) GetLast() *Node[T] {
 
 func (ll *LinkedList[T]) PushNode(node Node[T]) {
 	n := ll.GetLast()
-
 	n.Next = &node
 }
 
 func (ll *LinkedList[T]) PushData(data T) {
-	new := N_New(data)
-	ll.PushNode(new)
+	last := ll.GetLast()
+	new := N_New(last.idx+1, data)
+	last.Next = &new
 }
