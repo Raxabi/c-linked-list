@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Raxabi/go-ll/ll"
+	"github.com/Raxabi/c-linked-list/ll"
 )
 
 func TestCreateLL(t *testing.T) {
